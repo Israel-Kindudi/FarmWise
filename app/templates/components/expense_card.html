@@ -1,0 +1,16 @@
+<!-- templates/components/expense_card.html -->
+<div class="col-xl-3 col-lg-4 col-sm-6">
+    <div class="icon-card mb-30">
+        <div class="icon danger">
+            <i class="lni lni-credit-cards"></i>
+        </div>
+        <div class="content">
+            <h6 class="mb-10">Expenses</h6>
+            <h3 class="text-bold mb-10">${{ current_period_expense }}</h3>
+            <p class="text-sm {% if expense_percentage_change >= 0 %}text-success{% else %}text-danger{% endif %}">
+                <i class="lni lni-arrow-{% if expense_percentage_change >= 0 %}up{% else %}down{% endif %}"></i> {{ expense_percentage_change|round(2) }}%
+                <span class="text-gray">(30 days)</span>
+            </p>
+        </div>
+    </div>
+</div>
