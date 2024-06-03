@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Orders</title>
+</head>
+<body>
+    <h1>List of Orders</h1>
+    <a href="{{ url_for('order.add_order') }}">Add New Order</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Customer Name</th>
+                <th>Order Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.product }}</td>
+                <td>{{ order.quantity }}</td>
+                <td>{{ order.status }}</td>
+                <td>{{ order.date }}</td>
+                <td>{{ order.customer_name }}</td>
+                <td>{{ order.order_date }}</td>
+                <td>
+                    <a href="{{ url_for('order.edit_order', id=order.id) }}">Edit</a>
+                    <a href="{{ url_for('order.delete_order', id=order.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

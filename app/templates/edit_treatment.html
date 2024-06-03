@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Treatment</title>
+</head>
+<body>
+    <h1>Edit Treatment</h1>
+    <form method="POST">
+        <label for="animal_id">Animal ID:</label>
+        <select name="animal_id" id="animal_id" required>
+            {% for animal in animals %}
+            <option value="{{ animal.id }}" {% if treatment.animal_id == animal.id %}selected{% endif %}>
+                {{ animal.species }} (ID: {{ animal.id }})
+            </option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="treatment_type">Treatment Type:</label>
+        <input type="text" name="treatment_type" id="treatment_type" value="{{ treatment.treatment_type }}" required>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" value="{{ treatment.date }}" required>
+        <br>
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes">{{ treatment.notes }}</textarea>
+        <br>
+        <button type="submit">Update Treatment</button>
+    </form>
+</body>
+</html>

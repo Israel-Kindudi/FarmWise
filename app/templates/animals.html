@@ -1,0 +1,22 @@
+<!-- app/templates/animals.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Add New Animal</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.species.label }}<br>
+        {{ form.species(size=32) }}
+    </p>
+    <p>
+        {{ form.birth_date.label }}<br>
+        {{ form.birth_date(size=32) }}
+    </p>
+    <p>
+        {{ form.health_status.label }}<br>
+        {{ form.health_status(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

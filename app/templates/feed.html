@@ -1,0 +1,22 @@
+<!-- app/templates/feed.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Log Feeding</h2>
+<form method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.animal_id.label }}<br>
+        {{ form.animal_id(size=32) }}
+    </p>
+    <p>
+        {{ form.date.label }}<br>
+        {{ form.date(size=32) }}
+    </p>
+    <p>
+        {{ form.quantity.label }}<br>
+        {{ form.quantity(size=32) }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

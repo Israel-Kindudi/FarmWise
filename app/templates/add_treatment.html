@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Treatment</title>
+</head>
+{% extends "base.html" %}
+{% block content %}
+<body>
+    
+    <h1>Add Treatment</h1>
+    <form method="POST">
+        <label for="animal_id">Animal ID:</label>
+        <select name="animal_id" id="animal_id" required>
+            {% for animal in animals %}
+            <option value="{{ animal.id }}">{{ animal.species }} (ID: {{ animal.id }})</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="treatment_type">Treatment Type:</label>
+        <input type="text" name="treatment_type" id="treatment_type" required>
+        <br>
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date" required>
+        <br>
+        <label for="notes">Notes:</label>
+        <textarea name="notes" id="notes"></textarea>
+        <br>
+        <button type="submit">Add Treatment</button>
+    </form>
+</body>
+{% endblock  %}
+</html>

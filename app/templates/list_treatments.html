@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Treatments</title>
+</head>
+<body>
+    <h1>List of Treatments</h1>
+    <a href="{{ url_for('treatments.add_treatment') }}">Add New Treatment</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Animal ID</th>
+                <th>Treatment Type</th>
+                <th>Date</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for treatment in treatments %}
+            <tr>
+                <td>{{ treatment.id }}</td>
+                <td>{{ treatment.animal_id }}</td>
+                <td>{{ treatment.treatment_type }}</td>
+                <td>{{ treatment.date }}</td>
+                <td>{{ treatment.notes }}</td>
+                <td>
+                    <a href="{{ url_for('treatments.edit_treatment', id=treatment.id) }}">Edit</a>
+                    <a href="{{ url_for('treatments.delete_treatment', id=treatment.id) }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
